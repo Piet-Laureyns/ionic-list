@@ -452,7 +452,18 @@ module.exports = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-ap
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-card class=\"ion-padding\" style=\"height:100%\">\n  <ion-card-header class=\"ion-text-center\">\n    <h1>Add new animal</h1>\n  </ion-card-header>\n  <ion-card-content>\n      <form [formGroup]=\"newImageItem\">\n          <ion-item>\n            <ion-img *ngIf=\"url\" src=\"{{url}}\"></ion-img>\n            <ion-input type='file' id='file' accept=\"image/*\" (change)=\"onSelectFile($event)\"></ion-input>\n          </ion-item>\n          <ion-item>\n            <ion-label>Name: </ion-label>\n            <ion-input type=\"text\" formControlName=\"title\"></ion-input>\n          </ion-item>\n          <ion-item>\n              <ion-label>Description: </ion-label>\n              <ion-input type=\"text\" formControlName=\"description\"></ion-input>\n            </ion-item>\n          <ion-item class=\"ion-padding-horizontal\">\n            <ion-button slot=\"start\" type=\"submit\" [disabled]=\"!newImageItem.valid\" (click)=\"submit()\" color=\"success\"><ion-icon slot=\"start\" name=\"add-circle-outline\"></ion-icon> Create</ion-button>\n            <ion-button slot=\"end\" (click)=\"close()\" color=\"danger\"><ion-icon slot=\"start\" name=\"close\"></ion-icon> Cancel</ion-button>\n          </ion-item>\n          <ion-label class=\"ion-text-center\" *ngIf=\"errorMsg\" color=\"danger\">\n            {{errorMsg}}\n          </ion-label>\n        </form>\n  </ion-card-content>\n</ion-card>\n\n{{newImageItem.value | json}}\n\n<!--\n<div class=\"col-8 offset-2 mt-5\">\n  <h2 class=\"center\"><i class=\"fas fa-file-upload\"></i> Upload Meme</h2>\n  <form [formGroup]=\"meme\" class=\"form\">\n    <div class=\"row\">\n      <div class=\"col-6\">\n        <div class=\"form-group center\">\n          <img *ngIf=\"url\" [src]=\"url\" height=\"400\"> <br />\n          <input class=\"m-1 inputfile\" type='file' id='file' accept=\"image/*\" (change)=\"onSelectFile($event)\">\n          <label for=\"file\" class=\"btn btn-primary m-1\"><i class=\"fas fa-file-upload\"></i> Select Meme</label>\n        </div>\n      </div>\n      <div class=\"col-6\">\n        <div class=\"form-group row\">\n          <div class=\"col-3 labelDiv\">\n            <label class=\"col-form-label\" for=\"name\"><b>Name:</b></label>\n          </div>\n          <div class=\"col-6\">\n            <input type=\"text\" class=\"form-control\" id=\"name\" formControlName=\"name\">\n          </div>\n        </div>\n        <div *ngIf=\"genres\" class=\"mt-2\">\n          <div class=\"form-group row\">\n            <div class=\"col-3 labelDiv\">\n              <label class=\"col-form-label\" for=\"genre\"><b><i class=\"fas fa-search\"></i> Tag:</b></label>\n            </div>\n            <div class=\"col-6\">\n              <input type=\"text\" class=\"form-control\" id=\"genre\" (keyup)=\"genreOnKey($event)\" />\n            </div>\n            <div class=\"col-3\">\n              <button class=\"btn btn-primary\" (click)=\"addGenre()\"><i class=\"fas fa-plus\"></i> Add Tag</button>\n            </div>\n          </div>\n          <div class=\"genres\">\n            <div *ngFor=\"let genre of filteredGenres\" class=\"genre\" [ngClass]=\"{'genreSelected' : isSelected(genre)}\"\n              (click)=\"clickGenre(genre)\">\n              <strong>{{genre.name}}</strong>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <br />\n    <div class=\"mb-2 center\">\n      <button type=\"submit\" [disabled]=\"!meme.valid\" (click)=\"onSubmit()\" class=\"btn btn-success mr-5\">\n        <i class=\"fas fa-plus-circle\"></i> Create Meme\n      </button>\n      <button type=\"button\" (click)=\"cancel()\" class=\"btn btn-danger\">\n        <i class=\"fas fa-times-circle\"></i> Cancel\n      </button>\n    </div>\n    <div *ngIf=\"errorMsg\" class=\"alert alert-danger col-6 offset-3\">\n      {{errorMsg}}\n    </div>\n  </form>\n</div>\n\n-->"
+module.exports = "<div class=\"createItemDiv\">\r\n  <ion-title class=\"ion-text-center\">\r\n    <h1>Add a new animal <ion-icon name=\"paw\" slot=\"end\"></ion-icon>\r\n    </h1>\r\n  </ion-title>\r\n  <div class=\"formDiv\">\r\n    <form [formGroup]=\"newImageItem\">\r\n      <ion-img class=\"uploadedImg\" [src]=\"url\"></ion-img>\r\n      <ion-input type='file' id='file' accept=\"image/*\" (change)=\"onSelectFile($event)\"></ion-input>\r\n      <ion-item>\r\n        <ion-label>Name: </ion-label>\r\n        <ion-input type=\"text\" formControlName=\"title\"></ion-input>\r\n      </ion-item>\r\n      <ion-item>\r\n        <ion-label>Description: </ion-label>\r\n        <ion-textarea type=\"text\" formControlName=\"description\"></ion-textarea>\r\n      </ion-item>\r\n      <ion-item class=\"ion-padding-horizontal\" lines=\"none\">\r\n        <ion-button slot=\"start\" type=\"submit\" [disabled]=\"!newImageItem.valid\" (click)=\"submit()\" color=\"success\">\r\n          <ion-icon slot=\"start\" name=\"add-circle-outline\"></ion-icon> Create\r\n        </ion-button>\r\n        <ion-button slot=\"end\" (click)=\"close()\" color=\"danger\">\r\n          <ion-icon slot=\"start\" name=\"close\"></ion-icon> Cancel\r\n        </ion-button>\r\n      </ion-item>\r\n      <div class=\"ion-text-center\" [hidden]=\"!errorMsg\">\r\n        <ion-label color=\"danger\">\r\n          {{errorMsg}}\r\n        </ion-label>\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/image-viewer/image-viewer.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/image-viewer/image-viewer.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<img  [src]=\"imageUrl\"/>\r\n"
 
 /***/ }),
 
@@ -584,6 +595,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _create_item_create_item_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./create-item/create-item.component */ "./src/app/create-item/create-item.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _image_viewer_image_viewer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./image-viewer/image-viewer.component */ "./src/app/image-viewer/image-viewer.component.ts");
+
 
 
 
@@ -599,8 +612,8 @@ let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _create_item_create_item_component__WEBPACK_IMPORTED_MODULE_9__["CreateItemComponent"]],
-        entryComponents: [_create_item_create_item_component__WEBPACK_IMPORTED_MODULE_9__["CreateItemComponent"]],
+        declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _create_item_create_item_component__WEBPACK_IMPORTED_MODULE_9__["CreateItemComponent"], _image_viewer_image_viewer_component__WEBPACK_IMPORTED_MODULE_11__["ImageViewerComponent"]],
+        entryComponents: [_create_item_create_item_component__WEBPACK_IMPORTED_MODULE_9__["CreateItemComponent"], _image_viewer_image_viewer_component__WEBPACK_IMPORTED_MODULE_11__["ImageViewerComponent"]],
         imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_10__["ReactiveFormsModule"]],
         providers: [
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
@@ -622,7 +635,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NyZWF0ZS1pdGVtL2NyZWF0ZS1pdGVtLmNvbXBvbmVudC5zY3NzIn0= */"
+module.exports = ".createItemDiv {\n  background-color: var(--ion-color-dark);\n  color: var(--ion-color-primary);\n  height: 100%;\n}\n\nion-item {\n  --color: var(--ion-color-primary);\n}\n\n.formDiv {\n  margin: 5%;\n  margin-top: 0;\n}\n\n.uploadedImg {\n  height: 30vh;\n  width: 70%;\n  margin-left: 15%;\n  margin-right: 15%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY3JlYXRlLWl0ZW0vQzpcXFVzZXJzXFxQaWV0IExhdXJleW5zXFxEZXNrdG9wXFxJb25pYyBHaXRodWJcXGlvbmljLWxpc3Qvc3JjXFxhcHBcXGNyZWF0ZS1pdGVtXFxjcmVhdGUtaXRlbS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY3JlYXRlLWl0ZW0vY3JlYXRlLWl0ZW0uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSx1Q0FBQTtFQUNBLCtCQUFBO0VBQ0EsWUFBQTtBQ0NKOztBREVBO0VBQ0ksaUNBQUE7QUNDSjs7QURFQTtFQUNFLFVBQUE7RUFDQSxhQUFBO0FDQ0Y7O0FERUE7RUFDSSxZQUFBO0VBQ0EsVUFBQTtFQUNBLGdCQUFBO0VBQ0EsaUJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2NyZWF0ZS1pdGVtL2NyZWF0ZS1pdGVtLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNyZWF0ZUl0ZW1EaXYge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdmFyKC0taW9uLWNvbG9yLWRhcmspO1xyXG4gICAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1wcmltYXJ5KTtcclxuICAgIGhlaWdodDogMTAwJTtcclxufVxyXG5cclxuaW9uLWl0ZW0ge1xyXG4gICAgLS1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXByaW1hcnkpO1xyXG59XHJcblxyXG4uZm9ybURpdiB7XHJcbiAgbWFyZ2luOiA1JTtcclxuICBtYXJnaW4tdG9wOiAwO1xyXG59XHJcblxyXG4udXBsb2FkZWRJbWd7XHJcbiAgICBoZWlnaHQ6IDMwdmg7XHJcbiAgICB3aWR0aDogNzAlO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDE1JTtcclxuICAgIG1hcmdpbi1yaWdodDogMTUlO1xyXG59XHJcblxyXG5cclxuICAiLCIuY3JlYXRlSXRlbURpdiB7XG4gIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWlvbi1jb2xvci1kYXJrKTtcbiAgY29sb3I6IHZhcigtLWlvbi1jb2xvci1wcmltYXJ5KTtcbiAgaGVpZ2h0OiAxMDAlO1xufVxuXG5pb24taXRlbSB7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1wcmltYXJ5KTtcbn1cblxuLmZvcm1EaXYge1xuICBtYXJnaW46IDUlO1xuICBtYXJnaW4tdG9wOiAwO1xufVxuXG4udXBsb2FkZWRJbWcge1xuICBoZWlnaHQ6IDMwdmg7XG4gIHdpZHRoOiA3MCU7XG4gIG1hcmdpbi1sZWZ0OiAxNSU7XG4gIG1hcmdpbi1yaWdodDogMTUlO1xufSJdfQ== */"
 
 /***/ }),
 
@@ -654,13 +667,12 @@ let CreateItemComponent = class CreateItemComponent {
     ngOnInit() {
         this.newImageItem = this.fb.group({
             title: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(2), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(30)]],
-            description: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(2)]]
+            description: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(2), _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].maxLength(300)]]
         });
     }
     onSelectFile(event) {
         if (event.target.files && event.target.files[0]) {
             this.file = event.target.files[0];
-            console.log(this.file);
             this.imageName = event.target.files[0].name;
             const validImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
             if (!validImageTypes.includes(event.target.files[0].type)) {
@@ -671,9 +683,9 @@ let CreateItemComponent = class CreateItemComponent {
                 this.newImageItem.patchValue({ name: this.imageName.split('.')[0] });
                 const reader = new FileReader();
                 reader.readAsDataURL(event.target.files[0]); // read file as data url
-                reader.onload = (event) => {
-                    this.image = event.target.result;
-                    this.url = event.target.result;
+                reader.onload = (ev) => {
+                    this.image = ev.target.result;
+                    this.url = ev.target.result;
                 };
             }
         }
@@ -711,6 +723,65 @@ CreateItemComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/image-viewer/image-viewer.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/image-viewer/image-viewer.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ltYWdlLXZpZXdlci9pbWFnZS12aWV3ZXIuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/image-viewer/image-viewer.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/image-viewer/image-viewer.component.ts ***!
+  \********************************************************/
+/*! exports provided: ImageViewerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageViewerComponent", function() { return ImageViewerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+let ImageViewerComponent = class ImageViewerComponent {
+    constructor(modalController, navParams) {
+        this.modalController = modalController;
+        this.navParams = navParams;
+    }
+    ngOnInit() { }
+    ionViewWillEnter() {
+        this.imageUrl = this.navParams.get('imageUrl');
+    }
+    myDismiss() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            yield this.modalController.dismiss();
+        });
+    }
+};
+ImageViewerComponent.ctorParameters = () => [
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"] }
+];
+ImageViewerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-image-viewer',
+        template: __webpack_require__(/*! raw-loader!./image-viewer.component.html */ "./node_modules/raw-loader/index.js!./src/app/image-viewer/image-viewer.component.html"),
+        styles: [__webpack_require__(/*! ./image-viewer.component.scss */ "./src/app/image-viewer/image-viewer.component.scss")]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavParams"]])
+], ImageViewerComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/imageItem.ts":
 /*!******************************!*\
   !*** ./src/app/imageItem.ts ***!
@@ -726,6 +797,19 @@ class ImageItem {
         this.imageUrl = imageUrl;
         this.title = title;
         this.description = description;
+        this.showDescription = false;
+    }
+    getBackgroundColor() {
+        return this.backgroundColor ? this.backgroundColor : 'var(--ion-color-light)';
+    }
+    getTextColor() {
+        return this.textColor ? this.textColor : 'var(--ion-color-dark)';
+    }
+    setBackgroundColor(color) {
+        this.backgroundColor = color;
+    }
+    setTextColor(color) {
+        this.textColor = color;
     }
 }
 ImageItem.ctorParameters = () => [
